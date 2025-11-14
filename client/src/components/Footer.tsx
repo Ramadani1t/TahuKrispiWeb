@@ -1,4 +1,5 @@
 import { Heart } from "lucide-react";
+import logoImg from "@assets/1763097449392_1763097461717.png";
 
 export default function Footer() {
   return (
@@ -6,7 +7,14 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-lg font-bold mb-4 text-primary">Tahunya Krispi-ya!</h3>
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src={logoImg} 
+                alt="Tahunya Krispi-ya Logo" 
+                className="h-12 w-auto"
+              />
+              <h3 className="text-lg font-bold text-primary">Tahunya Krispi-ya!</h3>
+            </div>
             <p className="text-sm text-muted-foreground">
               Menyajikan tahu crispy berkualitas tinggi dengan cita rasa yang bikin nagih sejak 2024.
             </p>

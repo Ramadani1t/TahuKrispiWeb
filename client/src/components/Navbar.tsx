@@ -50,7 +50,7 @@ export default function Navbar({ cartItemCount = 0, onCartClick }: NavbarProps) 
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/">
             <button
-              className="flex items-center gap-2 hover-elevate active-elevate-2 px-2 py-1 rounded-md"
+              className="flex items-center gap-3 hover-elevate active-elevate-2 px-2 py-1 rounded-md"
               data-testid="link-home"
             >
               <img 
@@ -58,6 +58,9 @@ export default function Navbar({ cartItemCount = 0, onCartClick }: NavbarProps) 
                 alt="Tahunya Krispi-ya Logo" 
                 className="h-12 md:h-14 w-auto"
               />
+              <span className="text-xl md:text-2xl font-bold text-primary hidden sm:block">
+                Tahunya Krispi-ya!
+              </span>
             </button>
           </Link>
 

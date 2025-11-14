@@ -1,6 +1,7 @@
 import { Mail, MessageCircle, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { SiTiktok } from "react-icons/si";
 
 export default function ContactSection() {
   return (
@@ -13,7 +14,7 @@ export default function ContactSection() {
           Ada pertanyaan atau ingin pesan? Jangan ragu untuk menghubungi kami!
         </p>
 
-        <div className="grid sm:grid-cols-3 gap-6 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           <Card className="hover-elevate">
             <CardContent className="p-6 text-center space-y-4">
               <div className="inline-flex p-4 bg-primary/10 rounded-full">
@@ -63,6 +64,24 @@ export default function ContactSection() {
                   data-testid="button-email"
                 >
                   info@krispiya.com
+                </button>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover-elevate">
+            <CardContent className="p-6 text-center space-y-4">
+              <div className="inline-flex p-4 bg-primary/10 rounded-full">
+                <SiTiktok className="h-8 w-8 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-semibold mb-2">TikTok</h3>
+                <button
+                  className="text-primary hover:underline font-medium"
+                  onClick={() => window.open('https://tiktok.com/@tahunya.krispiya', '_blank')}
+                  data-testid="button-tiktok"
+                >
+                  @tahunya.krispiya
                 </button>
               </div>
             </CardContent>

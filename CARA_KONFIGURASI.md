@@ -82,44 +82,47 @@ Cari bagian `<InfoSection />` dan ubah menjadi:
 
 ---
 
-## 🍔 Cara Menambahkan Link Aplikasi Delivery (GoFood, GrabFood, ShopeeFood)
+## 🍔 Cara Mengatur Status & Link Aplikasi Delivery (GoFood, GrabFood, ShopeeFood)
 
 Buka file: `client/src/components/DeliveryApps.tsx`
 
-Cari bagian `deliveryApps` (sekitar baris 6-24):
+Cari bagian `deliveryApps` (sekitar baris 14-39):
 
-**Ubah URL dari `"#gofood"` menjadi link aktual Anda:**
+**Ubah URL dan status Online/Offline:**
 
 ```typescript
-const deliveryApps = [
+const deliveryApps: DeliveryApp[] = [
   {
     name: "GoFood",
     color: "bg-green-600",
     url: "https://gofood.link/tokoanda", // ← Ganti dengan link GoFood toko Anda
-    description: "Pesan via GoFood"
+    description: "Pesan via GoFood",
+    isOnline: true, // ← true = Online, false = Offline (Belum Tersedia)
+    icon: SiGofood
   },
   {
     name: "GrabFood",
     color: "bg-emerald-600",
-    url: "https://grab.com/tokoanda", // ← Ganti dengan link GrabFood toko Anda
-    description: "Pesan via GrabFood"
+    url: "#grabfood", // ← URL tidak penting jika offline
+    description: "Pesan via GrabFood",
+    isOnline: false, // ← Set false karena belum tersedia
+    icon: SiGrab
   },
   {
     name: "ShopeeFood",
     color: "bg-orange-600",
-    url: "https://shopee.co.id/tokoanda", // ← Ganti dengan link ShopeeFood toko Anda
-    description: "Pesan via ShopeeFood"
+    url: "#shoppeefood",
+    description: "Pesan via ShopeeFood",
+    isOnline: false, // ← Set false karena belum tersedia
+    icon: ShoppingBag
   }
 ];
 ```
 
-Kemudian ubah bagian onClick (sekitar baris 49):
-
-```typescript
-onClick={() => {
-  window.open(app.url, '_blank'); // ← Tambahkan baris ini
-}}
-```
+**Penjelasan:**
+- `isOnline: true` → Tombol "Buka Aplikasi" (hijau, bisa diklik)
+- `isOnline: false` → Tombol "Belum Tersedia" (merah, tidak bisa diklik)
+- Badge akan otomatis menampilkan "Online" atau "Offline"
 
 ---
 
@@ -160,12 +163,13 @@ Buka file: `client/src/components/Footer.tsx` (sekitar baris 45-48)
 ```
 
 ### Contact Section
-Buka file: `client/src/components/ContactSection.tsx` (sekitar baris 29, 47, 65)
+Buka file: `client/src/components/ContactSection.tsx` (sekitar baris 29, 47, 65, 83)
 
 Ubah link dan teks sesuai kebutuhan:
 - WhatsApp: Baris 29
 - Instagram: Baris 47
 - Email: Baris 65
+- TikTok: Baris 83
 
 ---
 
