@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { pgTable, text, varchar } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, integer } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -16,3 +16,19 @@ export const insertUserSchema = createInsertSchema(users).pick({
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
+
+export type Product = {
+  id: string;
+  name: string;
+  size: string;
+  pieces: number;
+  price: number;
+  image: string;
+  description: string;
+  type: 'tofu' | 'sambel';
+};
+
+export type CartItem = {
+  product: Product;
+  quantity: number;
+};
