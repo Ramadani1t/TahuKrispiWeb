@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@assets/IMG-20250911-WA0009_1763095354038.jpg";
+import logoImg from "@assets/1763097449392_1763097461717.png";
 
 interface HeroProps {
   onCTAClick?: () => void;
@@ -27,6 +28,15 @@ export default function Hero({ onCTAClick }: HeroProps) {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left space-y-6 animate-fade-in-up">
+            <div className="flex justify-center md:justify-start mb-6">
+              <img 
+                src={logoImg} 
+                alt="Tahunya Krispi-ya Logo" 
+                className="h-24 sm:h-32 lg:h-40 w-auto"
+                data-testid="hero-logo"
+              />
+            </div>
+            
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight" data-testid="hero-title">
               Tahunya <span className="text-primary">Krispi-ya!</span>
             </h1>
