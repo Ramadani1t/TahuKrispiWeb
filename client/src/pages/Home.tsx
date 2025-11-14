@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import ProductCard from "@/components/ProductCard";
 import ShoppingCart from "@/components/ShoppingCart";
 import InfoSection from "@/components/InfoSection";
+import DeliveryApps from "@/components/DeliveryApps";
 import BankInfo from "@/components/BankInfo";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -183,6 +184,7 @@ export default function Home() {
       </section>
 
       <InfoSection />
+      <DeliveryApps />
       <BankInfo />
       <ContactSection />
       <Footer />

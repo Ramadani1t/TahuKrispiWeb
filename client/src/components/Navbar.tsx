@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import logoImg from "@assets/1763097449392_1763097461717.png";
 
 interface NavbarProps {
   cartItemCount?: number;
@@ -49,10 +50,14 @@ export default function Navbar({ cartItemCount = 0, onCartClick }: NavbarProps) 
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/">
             <button
-              className="text-xl md:text-2xl font-bold text-primary hover-elevate active-elevate-2 px-2 py-1 rounded-md"
+              className="flex items-center gap-2 hover-elevate active-elevate-2 px-2 py-1 rounded-md"
               data-testid="link-home"
             >
-              Tahunya Krispi-ya!
+              <img 
+                src={logoImg} 
+                alt="Tahunya Krispi-ya Logo" 
+                className="h-12 md:h-14 w-auto"
+              />
             </button>
           </Link>
 
