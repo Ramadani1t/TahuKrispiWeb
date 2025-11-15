@@ -149,8 +149,13 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold mb-6">Paket Tahu Crispy</h3>
+          <div className="mb-16">
+            <div className="mb-8">
+              <h3 className="text-2xl md:text-3xl font-bold mb-3">Size</h3>
+              <p className="text-base md:text-lg text-muted-foreground">
+                Disesuaikan dengan kebutuhan anda
+              </p>
+            </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {products
                 .filter((p) => p.type === "tofu")
@@ -165,8 +170,13 @@ export default function Home() {
             </div>
           </div>
 
-          <div>
-            <h3 className="text-2xl font-bold mb-6">Add-Ons</h3>
+          <div className="mb-16">
+            <div className="mb-8">
+              <h3 className="text-2xl md:text-3xl font-bold mb-3">Add-ons</h3>
+              <p className="text-base md:text-lg text-muted-foreground">
+                Sambel pedas spesial untuk melengkapi tahu crispy Anda. Cocok kalau sambelnya kurang atau ingin lebih pedas!
+              </p>
+            </div>
             <div className="grid sm:grid-cols-2 gap-6 max-w-2xl">
               {products
                 .filter((p) => p.type === "sambel")
@@ -180,6 +190,29 @@ export default function Home() {
                 ))}
             </div>
           </div>
+
+          {products.filter((p) => p.type === "bundle").length > 0 && (
+            <div className="mb-16">
+              <div className="mb-8">
+                <h3 className="text-2xl md:text-3xl font-bold mb-3">Bundle</h3>
+                <p className="text-base md:text-lg text-muted-foreground">
+                  Paket hemat untuk acara spesial, arisan, atau kumpul keluarga. Lebih banyak, lebih hemat!
+                </p>
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {products
+                  .filter((p) => p.type === "bundle")
+                  .map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      onBuyNow={handleBuyNow}
+                      onAddToCart={addToCart}
+                    />
+                  ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

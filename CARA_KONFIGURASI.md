@@ -126,12 +126,13 @@ const deliveryApps: DeliveryApp[] = [
 
 ---
 
-## 💰 Cara Mengubah Harga Produk
+## 💰 Cara Mengubah Harga Produk & Menambah Produk Baru
 
 Buka file: `client/src/pages/Home.tsx`
 
-Cari bagian `products` (sekitar baris 21-71):
+Cari bagian `products` (sekitar baris 23-74):
 
+### Mengubah Harga
 **Ubah harga sesuai kebutuhan:**
 
 ```typescript
@@ -147,6 +148,42 @@ const products: Product[] = [
   // ... produk lainnya
 ];
 ```
+
+### Menambah Produk Bundle
+**Untuk menambahkan paket bundle untuk acara:**
+
+```typescript
+const products: Product[] = [
+  // ... produk size & add-ons yang sudah ada
+  
+  // Tambahkan produk bundle di sini:
+  {
+    id: "bundle-party",
+    name: "Party Bundle",
+    size: "50 pcs + 5 Cup Sambel",
+    pieces: 50,
+    price: 75000,
+    image: img3, // Ganti dengan foto bundle Anda
+    description: "Paket hemat untuk acara arisan atau kumpul keluarga",
+    type: "bundle", // ← Type harus "bundle"
+  },
+  {
+    id: "bundle-event",
+    name: "Event Bundle",
+    size: "100 pcs + 10 Cup Sambel",
+    pieces: 100,
+    price: 140000,
+    image: img3,
+    description: "Paket besar untuk acara besar dan gathering",
+    type: "bundle",
+  }
+];
+```
+
+**Type produk yang tersedia:**
+- `"tofu"` → Muncul di kategori **Size**
+- `"sambel"` → Muncul di kategori **Add-ons**
+- `"bundle"` → Muncul di kategori **Bundle**
 
 ---
 
