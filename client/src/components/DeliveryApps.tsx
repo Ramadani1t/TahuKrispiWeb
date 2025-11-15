@@ -1,7 +1,10 @@
-import { Smartphone, ExternalLink, Bike, UtensilsCrossed, ShoppingBag } from "lucide-react";
+import { Smartphone, ExternalLink } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import shopeeFoodLogo from "@assets/20251115_114212_1763181742871.png";
+import goFoodLogo from "@assets/20251115_114119_1763181742925.png";
+import grabFoodLogo from "@assets/20251115_113828_1763181742952.png";
 
 interface DeliveryApp {
   name: string;
@@ -9,25 +12,25 @@ interface DeliveryApp {
   url: string;
   description: string;
   isOnline: boolean;
-  icon: React.ComponentType<{ className?: string }>;
+  logo: string;
 }
 
 const deliveryApps: DeliveryApp[] = [
   {
     name: "GoFood",
-    color: "bg-green-600",
+    color: "bg-red-600",
     url: "https://gofood.link/u/your-store",
     description: "Pesan via GoFood",
     isOnline: true,
-    icon: Bike
+    logo: goFoodLogo
   },
   {
     name: "GrabFood",
-    color: "bg-emerald-600",
+    color: "bg-green-600",
     url: "#grabfood",
     description: "Pesan via GrabFood",
     isOnline: false,
-    icon: UtensilsCrossed
+    logo: grabFoodLogo
   },
   {
     name: "ShopeeFood",
@@ -35,7 +38,7 @@ const deliveryApps: DeliveryApp[] = [
     url: "#shoppeefood",
     description: "Pesan via ShopeeFood",
     isOnline: false,
-    icon: ShoppingBag
+    logo: shopeeFoodLogo
   }
 ];
 
@@ -57,15 +60,16 @@ export default function DeliveryApps() {
 
         <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {deliveryApps.map((app) => {
-            const IconComponent = app.icon;
             return (
               <Card key={app.name} className="hover-elevate transition-all duration-300 hover:-translate-y-1">
                 <CardHeader>
-                  <div className={`${app.color} text-white rounded-lg p-6 mb-4 flex flex-col items-center justify-center gap-3`}>
-                    <IconComponent className="h-12 w-12 text-white" />
-                    <CardTitle className="text-white text-center text-xl">
-                      {app.name}
-                    </CardTitle>
+                  <div className={`${app.color} text-white rounded-lg p-6 mb-4 flex items-center justify-center`}>
+                    <img 
+                      src={app.logo} 
+                      alt={`${app.name} Logo`} 
+                      className="h-16 w-auto object-contain"
+                      data-testid={`logo-${app.name.toLowerCase()}`}
+                    />
                   </div>
                   <div className="flex justify-center">
                     <Badge 

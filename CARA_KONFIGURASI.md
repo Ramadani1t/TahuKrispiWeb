@@ -86,7 +86,7 @@ Cari bagian `<InfoSection />` dan ubah menjadi:
 
 Buka file: `client/src/components/DeliveryApps.tsx`
 
-Cari bagian `deliveryApps` (sekitar baris 14-39):
+Cari bagian `deliveryApps` (sekitar baris 17-42):
 
 **Ubah URL dan status Online/Offline:**
 
@@ -94,27 +94,27 @@ Cari bagian `deliveryApps` (sekitar baris 14-39):
 const deliveryApps: DeliveryApp[] = [
   {
     name: "GoFood",
-    color: "bg-green-600",
+    color: "bg-red-600", // Merah - jangan diubah
     url: "https://gofood.link/tokoanda", // ← Ganti dengan link GoFood toko Anda
     description: "Pesan via GoFood",
     isOnline: true, // ← true = Online, false = Offline (Belum Tersedia)
-    icon: SiGofood
+    logo: goFoodLogo
   },
   {
     name: "GrabFood",
-    color: "bg-emerald-600",
-    url: "#grabfood", // ← URL tidak penting jika offline
+    color: "bg-green-600", // Hijau - jangan diubah
+    url: "#grabfood", // ← Ganti dengan link GrabFood Anda
     description: "Pesan via GrabFood",
     isOnline: false, // ← Set false karena belum tersedia
-    icon: SiGrab
+    logo: grabFoodLogo
   },
   {
     name: "ShopeeFood",
-    color: "bg-orange-600",
-    url: "#shoppeefood",
+    color: "bg-orange-600", // Orange - jangan diubah
+    url: "#shoppeefood", // ← Ganti dengan link ShopeeFood Anda
     description: "Pesan via ShopeeFood",
     isOnline: false, // ← Set false karena belum tersedia
-    icon: ShoppingBag
+    logo: shopeeFoodLogo
   }
 ];
 ```
@@ -123,6 +123,11 @@ const deliveryApps: DeliveryApp[] = [
 - `isOnline: true` → Tombol "Buka Aplikasi" (hijau, bisa diklik)
 - `isOnline: false` → Tombol "Belum Tersedia" (merah, tidak bisa diklik)
 - Badge akan otomatis menampilkan "Online" atau "Offline"
+
+**Warna Logo Background (sudah disesuaikan dengan brand):**
+- GoFood: Merah (`bg-red-600`)
+- GrabFood: Hijau (`bg-green-600`)
+- ShopeeFood: Orange (`bg-orange-600`)
 
 ---
 
