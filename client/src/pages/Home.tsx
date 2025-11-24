@@ -46,14 +46,14 @@ const products: Product[] = [
     name: "Large Pack",
     size: "20 pcs",
     pieces: 20,
-    price: 32000,
+    price: 35000,
     image: img3,
     description: "Pilihan hemat untuk acara atau pesta kecil",
     type: "tofu",
   },
   {
     id: "sambel-1",
-    name: "Sambel Pedas",
+    name: "Extra 1",
     size: "1 Cup",
     pieces: 1,
     price: 3000,
@@ -63,13 +63,33 @@ const products: Product[] = [
   },
   {
     id: "sambel-2",
-    name: "Sambel Pedas",
+    name: "Extra 2",
     size: "2 Cup",
     pieces: 2,
     price: 5000,
     image: img5,
     description: "Sambel pedas spesial - paket hemat 2 cup",
     type: "sambel",
+  },
+  {
+    id: "paket-1",
+    name: "Paket Happy",
+    size: "Size L + Size M (30 Pcs)+ Extra Sambel 1 Cup",
+    pieces: 1,
+    price: 50000,
+    image: img2,
+    description: "Cocok Untuk Hadiah Keluarga",
+    type: "paket",
+  },
+  {
+    id: "paket-2",
+    name: "Paket Love",
+    size: "Size L 2 (40 Pcs)+ Extra Sambel 2 Cup",
+    pieces: 2,
+    price: 60000,
+    image: img1,
+    description: "Cucok Ketika Acara Rapat",
+    type: "paket",
   },
 ];
 
@@ -191,17 +211,17 @@ export default function Home() {
             </div>
           </div>
 
-          {products.filter((p) => p.type === "bundle").length > 0 && (
+          {products.filter((p) => p.type === "paket").length > 0 && (
             <div className="mb-16">
               <div className="mb-8">
-                <h3 className="text-2xl md:text-3xl font-bold mb-3">Bundle</h3>
+                <h3 className="text-2xl md:text-3xl font-bold mb-3">Paket</h3>
                 <p className="text-base md:text-lg text-muted-foreground">
                   Paket hemat untuk acara spesial, arisan, atau kumpul keluarga. Lebih banyak, lebih hemat!
                 </p>
               </div>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {products
-                  .filter((p) => p.type === "bundle")
+                  .filter((p) => p.type === "paket")
                   .map((product) => (
                     <ProductCard
                       key={product.id}

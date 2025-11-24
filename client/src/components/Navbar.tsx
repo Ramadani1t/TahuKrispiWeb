@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "wouter";
+// Hapus 'Link' dan 'useLocation' dari wouter jika hanya digunakan untuk scroll
+// Jika wouter masih diperlukan di komponen lain, biarkan saja. Saya asumsikan ini murni untuk anchor.
+// import { Link, useLocation } from "wouter"; 
 import { Menu, X, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -13,7 +15,7 @@ interface NavbarProps {
 export default function Navbar({ cartItemCount = 0, onCartClick }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [location] = useLocation();
+  // const [location] = useLocation(); // Hapus jika tidak digunakan
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,12 +26,22 @@ export default function Navbar({ cartItemCount = 0, onCartClick }: NavbarProps) 
   }, []);
 
   const navLinks = [
-    { href: "/", label: "Home" },
+    { href: "#top", label: "Home" }, // Anchor untuk paling atas halaman
+    { href: "#menu", label: "Menu" }, // Anchor ke section Menu Anda
     { href: "#info", label: "Info" },
     { href: "#contact", label: "Contact" }
   ];
-
+  
+  // FUNGSI SCROLL YANG SUDAH DIPERBAIKI (Tidak ada definisi ganda)
   const scrollToSection = (href: string) => {
+    // 1. Logika Khusus untuk Home (#top)
+    if (href === '#top') { 
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setIsMobileMenuOpen(false);
+      return;
+    }
+    
+    // 2. Logika untuk Anchor Lain (#menu, #info, #contact)
     if (href.startsWith('#')) {
       const element = document.querySelector(href);
       if (element) {
@@ -48,21 +60,23 @@ export default function Navbar({ cartItemCount = 0, onCartClick }: NavbarProps) 
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link href="/">
-            <button
-              className="flex items-center gap-3 hover-elevate active-elevate-2 px-2 py-1 rounded-md"
-              data-testid="link-home"
-            >
-              <img 
-                src={logoImg} 
-                alt="Tahunya Krispi-ya Logo" 
-                className="h-12 md:h-14 w-auto"
-              />
-              <span className="text-xl md:text-2xl font-bold text-primary hidden sm:block">
-                Tahunya Krispi-ya!
-              </span>
-            </button>
-          </Link>
+          
+          {/* PERBAIKAN: Ganti Link wouter dengan button agar bisa dipanggil scrollToSection */}
+          <button
+            className="flex items-center gap-3 hover-elevate active-elevate-2 px-2 py-1 rounded-md"
+            data-testid="link-home"
+            onClick={() => scrollToSection("#top")} // Panggil scroll ke paling atas
+          >
+            <img 
+              src={logoImg} 
+              alt="Tahunya Krispi-ya Logo" 
+              className="h-12 md:h-14 w-auto"
+            />
+            <span className="text-xl md:text-2xl font-bold text-primary hidden sm:block">
+              Tahunya Krispi-ya!
+            </span>
+          </button>
+          {/* END PERBAIKAN LOGO */}
 
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (

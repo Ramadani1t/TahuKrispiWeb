@@ -46,7 +46,7 @@ export default function Hero({ onCTAClick }: HeroProps) {
             </p>
             
             <p className="text-lg sm:text-xl text-muted-foreground max-w-lg" data-testid="hero-description">
-              Nikmati kelezatan tahu crispy dengan tekstur renyah di luar dan lembut di dalam. Dibuat fresh setiap hari dengan bahan berkualitas!
+              Nikmati kelezatan tahu crispy dengan tekstur renyah dan dicocol sambal kecap kalasan pedas gurih, Dibuat fresh setiap hari dengan bahan berkualitas!
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
