@@ -25,7 +25,7 @@ export type Product = {
   price: number;
   image: string;
   description: string;
-  type: 'tofu' | 'sambel' | 'bundle';
+  type: 'tofu' | 'sambel' | 'paket';
 };
 
 export type CartItem = {
